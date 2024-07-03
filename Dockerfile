@@ -4,7 +4,7 @@ FROM continuumio/anaconda3:latest
 # Set the working directory
 WORKDIR /app
 
-# Copy the environment file and the notebook into the container
+# Copy the environment file, the notebook, metadat files, and Data folder into the container
 COPY idoven_env.yml .
 COPY SignalProcessing.ipynb .
 COPY ptbxl_database.csv .
