@@ -6,9 +6,6 @@ WORKDIR /app
 
 # Copy the environment file, the notebook, metadat files, and Data folder into the container
 COPY idoven_env.yml .
-COPY SignalProcessing.ipynb .
-COPY ptbxl_database.csv .
-COPY data /app/data
 
 # Create and activate a new environment
 RUN conda env create -f idoven_env.yml && \
@@ -23,6 +20,11 @@ RUN conda install -c conda-forge jupyterlab
 
 # Expose Jupyter notebook port
 EXPOSE 8888
+
+COPY SignalProcessing.ipynb .
+COPY ptbxl_database.csv .
+COPY data /app/data
+
 
 # Start Jupyter notebook
 CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]

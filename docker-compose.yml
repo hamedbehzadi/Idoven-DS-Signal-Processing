@@ -1,11 +1,12 @@
 version: '3'
 services:
   jupyter:
-    network_mode: bridge
     build: .
     ports:
       - "8888:8888"
     volumes:
-      - ./my_notebook.ipynb:/app/my_notebook.ipynb
+      - ./SignalProcessing.ipynb:/app/SignalProcessing.ipynb
+      - ./ptbxl_database.csv:/app/ptbxl_database.csv
+      - ./data:/app/data
     environment:
       - PYTHONPATH=/app
