@@ -1,11 +1,11 @@
 version: '3'
 services:
   jupyter:
+    network_mode: bridge
     build: .
     ports:
       - "8888:8888"
     volumes:
-      - ./your_notebook.ipynb:/app/your_notebook.ipynb
+      - ./my_notebook.ipynb:/app/my_notebook.ipynb
     environment:
       - PYTHONPATH=/app
-
