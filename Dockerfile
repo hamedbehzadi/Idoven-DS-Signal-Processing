@@ -8,7 +8,7 @@ WORKDIR /app
 COPY idoven_env.yml .
 COPY SignalProcessing.ipynb .
 COPY ptbxl_database.csv .
-COPY Data /app/Data
+COPY data /app/data
 
 # Create and activate a new environment
 RUN conda env create -f idoven_env.yml && \
