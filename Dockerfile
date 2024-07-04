@@ -26,6 +26,8 @@ EXPOSE 8888
 # Coppying the notebook, metadat files, and Data folder into the container
 COPY SignalProcessing.ipynb .
 COPY ptbxl_database.csv .
+COPY myplot.py .
+COPY scp_statements.csv .
 COPY data /app/data
 
 # Starting Jupyter notebook

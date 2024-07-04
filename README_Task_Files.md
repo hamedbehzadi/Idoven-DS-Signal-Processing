@@ -28,17 +28,19 @@ To generate the visualizations, I took searches for existing signal processing p
 ## Project files
 This project includes following files.
 
-1- SignalProcessing.ipynb: This notebook implements code for visualizing 12-lead ECG signals. It also illustrates heart rate, ECG signals and peaks, average heart shape, and average heart rate for each $ecg\_id$. Additionally, the used packages annotate different characteristics of the signals, such as the R-peak. A detailed explanation of each code cell is provided in this notebook. You can change the values of some variables to visualize different signals from different patients. 
+1- SignalProcessing.ipynb: This notebook implements code for visualizing 12-lead ECG signals. It also illustrates heart rate, ECG signals and peaks, average heart shape, and average heart rate for each `ecg_id`. Additionally, the used packages annotate different characteristics of the signals, such as the R-peak. A detailed explanation of each code cell is provided in this notebook. You can change the values of some variables to visualize different signals from different patients. 
 
-2- idoven_env.yml This file shows dependencies of the Anaconda environment for this project. For this project, I have created indivdual environment and installed the Neurokit2 in it. 
+2- myplot.py. The functions `ecg_plot` and `signal_plot` from Neurokit2 were rendereing in wrong sizes. So, I reused these functions and made some minor modifications to resolve this issues. 
 
-3- Docker and docker-compose files. These files include the command for installations such as anaconda env., Jupytherlab, as well as adding files. The provided docker-compose file defines a configuration for the Docker service. For example, it indicates the ports that Jupyter works on. In order to execute the code, the only thing that you need to do is open a terminal and insert one of the following commands depending on your docker version.
+3- idoven_env.yml This file shows dependencies of the Anaconda environment for this project. For this project, I have created indivdual environment and installed the Neurokit2 in it. 
+
+4- Docker and docker-compose files. These files include the command for installations such as anaconda env., Jupytherlab, as well as adding files. The provided docker-compose file defines a configuration for the Docker service. For example, it indicates the ports that Jupyter works on. In order to execute the code, the only thing that you need to do is open a terminal and insert one of the following commands depending on your docker version.
 
 	- docker-compose up
 	
 	- docker compose up 
 
-4- ptbxl_database.csv: This is one of the metadata from the dataset. From this file, we can read specific ecg files (please see notebook for more details).
+5- ptbxl_database.csv: This is one of the metadata from the dataset. From this file, we can read specific ecg files (please see notebook for more details).
 
  
 ## Dataset
