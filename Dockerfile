@@ -1,31 +1,32 @@
-# Use the official Anaconda base image
+# Using the official Anaconda base image
 FROM continuumio/anaconda3:latest
 
-# Set the working directory
+# Setting the working directory
 WORKDIR /app
 
-# Copy the environment file, the notebook, metadat files, and Data folder into the container
+# Copy the environment file
 COPY idoven_env.yml .
 
-# Create and activate a new environment
+# Creating and activate a new environment
 RUN conda env create -f idoven_env.yml && \
     echo "source activate $(head -1 idoven_env.yml | cut -d' ' -f2)" >> ~/.bashrc && \
     conda clean -afy
 
-# Make RUN commands use the new environment
+# Makeing a RUN command to use the new environment
 SHELL ["conda", "run", "-n", "idoven", "/bin/bash", "-c"]
 
-# Install Jupyter in the conda environment
+# Installing Jupyter in the conda environment
 RUN conda install -c conda-forge jupyterlab
 
 # Expose Jupyter notebook port
 EXPOSE 8888
 
+# Coppying the notebook, metadat files, and Data folder into the container
 COPY SignalProcessing.ipynb .
 COPY ptbxl_database.csv .
 COPY data /app/data
 
 
-# Start Jupyter notebook
+# Starting Jupyter notebook
 CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
 
