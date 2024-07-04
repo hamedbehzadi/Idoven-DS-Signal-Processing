@@ -40,7 +40,13 @@ This project includes following files.
 	
 	- docker compose up 
 
+
+After opening the Jupyter lab in your browser, the kernel named 'idoven' should be already activated. If not, change the kernel of the jupyter from defult to the kernel named 'idoven'. 
+
+
 5- ptbxl_database.csv: This is one of the metadata from the dataset. From this file, we can read specific ecg files (please see notebook for more details).
+
+6- scp_statements.csv: We use the information of this file to add a column indicating the annotation/label of the signals. We read both signial and its corresponding annotation/label. 
 
  
 ## Dataset
