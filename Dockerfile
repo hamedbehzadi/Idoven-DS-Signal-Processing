@@ -15,8 +15,10 @@ RUN conda env create -f idoven_env.yml && \
 # Makeing a RUN command to use the new environment
 SHELL ["conda", "run", "-n", "idoven", "/bin/bash", "-c"]
 
-# Installing Jupyter in the conda environment
-RUN conda install -c conda-forge jupyterlab
+# Installing Jupyter and ipykernel in the conda environment
+RUN conda install -c conda-forge jupyterlab && \
+    conda run -n idoven pip install ipykernel && \
+    conda run -n idoven python -m ipykernel install --name idoven --display-name "Python (idoven)"
 
 # Expose Jupyter notebook port
 EXPOSE 8888
@@ -26,7 +28,7 @@ COPY SignalProcessing.ipynb .
 COPY ptbxl_database.csv .
 COPY data /app/data
 
-
 # Starting Jupyter notebook
-CMD ["jupyter", "lab", "--ip='0.0.0.0'", "--port=8888", "--no-browser", "--allow-root"]
+CMD ["jupyter", "lab", "--ip=0.0.0.0", "--port=8888", "--no-browser", "--allow-root"]
+
 
